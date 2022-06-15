@@ -11,4 +11,31 @@ package com.mycompany.proyectoso;
  */
 public class Login {
     
+    public boolean esUsuario(String nombre, String contraseña){
+        ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
+        String[] usuarios = manejador.leerArchivo("src\\usuarios.txt");     // Guardo usuarios y contraseñas en array de strings. Usuarios están en txt llamado usuarios en la carpeta src, un usuario o contraseña por linea.
+        int i = 0;
+        boolean nombreValido = false;
+        boolean contraseñaValida = false;
+        boolean resultado = nombreValido && contraseñaValida;   // El resultado es la conjuncion de ambas condiciones
+        while (i < usuarios.length && !resultado){      // Si el resultado es verdadero, ya corta el while
+            if (usuarios[i].equals(nombre)){
+                nombreValido = true;        
+            }
+            if (usuarios[i].equals(contraseña)){
+                contraseñaValida = true;
+            }
+            resultado = nombreValido && contraseñaValida;
+            i++;
+        }
+        return resultado;
+    }
+    
+    public void agregarUsuario(String nombre, String contraseña){
+        ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
+        String[] usuario = {nombre, contraseña};    // Creo arreglo de strings con usuario y contraseña para escribir en el txt
+        manejador.escribirArchivo("src\\usuarios.txt", usuario);    // Escribo el txt "usuarios" en la carpeta src del proyecto con el usuario nuevo
+    }
+    
+    
 }

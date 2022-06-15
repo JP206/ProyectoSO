@@ -16,7 +16,7 @@ public class Recurso {
         if (Scheduler.ejecutandose.contains(process) && !this.isBlocked)
         {
             this.isBlocked = true;
-            Scheduler.AddBloqueado(process);
+            //Scheduler.AddBloqueado(process); no deberia seguir ejecutando el proceso?
         }
         else
         {

@@ -14,6 +14,7 @@ public class Proceso {
     public Integer in_outputTime; // Tiempo en que llega una interrupcion
     public Integer in_outputWait; // Tiempo en que usa un recurso
     public String processName; // Nombre del proceso
+    public Integer timeLeft;
   
     
     public Proceso(Integer totalTime, Integer in_outputTime, Integer in_outputWait, String processName, Integer priority)
@@ -23,6 +24,7 @@ public class Proceso {
         this.in_outputWait = in_outputWait;
         this.totalTime = totalTime;
         this.processName = processName;
+        this.timeLeft = totalTime;
         Scheduler.AddListo(this);
     }
 }

@@ -14,11 +14,12 @@ import java.util.TimerTask;
 public class TimerPrivado {
     Timer timer;
     public Proceso process;
-
-    public TimerPrivado(int seconds, Proceso process) {
+    public int seconds;
+    public TimerPrivado(Proceso process) {
         timer = new Timer();
+        this.seconds = Scheduler.GetTimeOut();
         this.process = process;
-        timer.schedule(new StopTask(), seconds * 1000);
+        timer.schedule(new StopTask(), this.seconds * 1000);
     }
 
 
@@ -26,6 +27,11 @@ public class TimerPrivado {
         @Override
         public void run() {
             Scheduler.RemoveEjecutandose(process);
+            process.timeLeft = process.timeLeft - seconds;
+            if (process.timeLeft > 0)
+            {
+                Scheduler.AddListo(process);
+            }
             timer.cancel();
         }
     }

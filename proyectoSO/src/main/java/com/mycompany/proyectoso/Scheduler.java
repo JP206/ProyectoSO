@@ -5,6 +5,7 @@
 package com.mycompany.proyectoso;
 
 import java.lang.reflect.Array;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -15,14 +16,15 @@ import java.util.ArrayList;
  */
 public class Scheduler {
 
-    public static CPU[] cpus = new CPU[30];
-    public static ArrayList<Proceso> listos = new ArrayList<>();
+    public static int cpusLeft;
+    public static Proceso[][] listasPrioridades = new Proceso[99][99];
     public static ArrayList<Proceso> bloqueados = new ArrayList<>();
     public static ArrayList<Recurso> recursosListos = new ArrayList<>();
     public static ArrayList<Proceso> ejecutandose = new ArrayList<>();
+    public static HashMap<Integer, Integer> prioridadEjecutada = new HashMap<Integer, Integer>();
 
     private static Integer _timeout;
-
+    
     public static Integer GetTimeOut() {
         return Scheduler._timeout;
     }
@@ -33,29 +35,17 @@ public class Scheduler {
         }
     }
 
-    public static void AddCpu(CPU cpu) {
+    public static void AddListo(Proceso process) {
         int i = 0;
-        while (i < Scheduler.cpus.length && Scheduler.cpus[i] != null) {
+        while (i < Scheduler.listasPrioridades[process.priority].length && Scheduler.listasPrioridades[process.priority][i] != null) {
             i++;
         }
-        if (i < 30)
+        if (i < 99)
         {
-           Scheduler.cpus[i] = cpu; 
+           Scheduler.listasPrioridades[process.priority][i] = process; 
         }
     }
     
-
-    public static void AddListo(Proceso process) {
-        if (!Scheduler.listos.contains(process)) {
-            Scheduler.listos.add(process);
-        }
-    }
-
-    public static void RemoveListo(Proceso process) {
-        if (Scheduler.listos.contains(process)) {
-            Scheduler.listos.remove(process);
-        }
-    }
 
     public static void AddBloqueado(Proceso process) {
         if (!Scheduler.bloqueados.contains(process)) {
@@ -71,18 +61,22 @@ public class Scheduler {
         }
     }
 
-    public static void AddEjecutandose(Proceso process) {
-        if (!Scheduler.ejecutandose.contains(process)) {
+    public static boolean AddEjecutandose() {
+        if (Scheduler.cpusLeft > 0)
+        {
             int i = 0;
-            while (i < Scheduler.cpus.length && Scheduler.cpus[i].process != null) {
+            int j = 0;
+            Proceso processAdded = new Proceso(0, 0, 0, "j", 0);
+            while (i < Scheduler.listasPrioridades.length) {
+                while (j < Scheduler.listasPrioridades[i].length)
+                {
+                    j++;
+                }
+                processAdded = Scheduler.listasPrioridades[i][j];
                 i++;
             }
-            if (i < Scheduler.cpus.length) {
-                Scheduler.RemoveListo(process);
-                Scheduler.cpus[i].process = process;
-                new TimerPrivado(Scheduler.GetTimeOut(), process);
-                Scheduler.AddEjecutandose(process);
-            }
+            Scheduler.ejecutandose.add(processAdded);
+            Scheduler.listasPrioridades[i] = null;
         }
     }
 

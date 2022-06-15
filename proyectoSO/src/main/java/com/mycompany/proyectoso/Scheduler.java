@@ -66,23 +66,28 @@ public class Scheduler {
         {
             int i = 0;
             int j = 0;
-            Proceso processAdded = new Proceso(0, 0, 0, "j", 0);
             while (i < Scheduler.listasPrioridades.length) {
                 while (j < Scheduler.listasPrioridades[i].length)
                 {
+                    if (Scheduler.listasPrioridades[i][j] != null)  // Si encuentra posicion no nula, hay proceso
+                    {
+                        Scheduler.ejecutandose.add(Scheduler.listasPrioridades[i][j]);  // Agrego proceso encontrado a lista de ejecutandose
+                        Scheduler.listasPrioridades[i][j] = null;  // Quito el proceso de los listos
+                        break;      // Salgo de los while, ya encontré el siguiente listo para ejecutarse
+                    }
                     j++;
                 }
-                processAdded = Scheduler.listasPrioridades[i][j];
                 i++;
             }
-            Scheduler.ejecutandose.add(processAdded);
-            Scheduler.listasPrioridades[i] = null;
+            return true;
         }
+        return false;   // No entra al if porque no hay cpu libre, devuelve false
     }
 
     public static void RemoveEjecutandose(Proceso process) {
         if (Scheduler.ejecutandose.contains(process)) {
             Scheduler.ejecutandose.remove(process);
+            Scheduler.cpusLeft++;
         }
     }
 }

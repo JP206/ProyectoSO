@@ -18,10 +18,10 @@ public class Recurso {
             process.isBlocked = true;
             this.isBlocked = true;
             System.out.println("estoy siendo usado ferri chan");
-            new TimerSalir(process);
         }
         else
         {
+            new TimerSalir(process);
             System.out.println("estot siendo bloqueado ferr uwu");
             Scheduler.AddBloqueado(process);
         }

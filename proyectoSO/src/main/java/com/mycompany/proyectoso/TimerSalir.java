@@ -30,7 +30,7 @@ public class TimerSalir {
             process.isBlocked = false;
             Scheduler.RemoveBloqueado(process);
             Scheduler.AddListo(process);
-            
+            System.out.println("estoy saliendo ferri san");
             timer.cancel();
         }
     }

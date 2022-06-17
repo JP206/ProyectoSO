@@ -17,11 +17,12 @@ public class Recurso {
         {
             process.isBlocked = true;
             this.isBlocked = true;
+            System.out.println("estoy siendo usado ferri chan");
             new TimerSalir(process);
-            //Scheduler.AddBloqueado(process); no deberia seguir ejecutando el proceso?
         }
         else
         {
+            System.out.println("estot siendo bloqueado ferr uwu");
             Scheduler.AddBloqueado(process);
         }
     }

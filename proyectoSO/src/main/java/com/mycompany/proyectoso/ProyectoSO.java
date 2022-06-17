@@ -13,16 +13,12 @@ public class ProyectoSO {
 
     public static void main(String[] args) {
         Recurso recurso1 = new Recurso();
-        Recurso recurso2 = new Recurso();
-        Recurso recurso3 = new Recurso();
-        Recurso recurso4 = new Recurso();
-        Recurso recurso5 = new Recurso();
         
         Proceso process1 = new Proceso(10, 2, 2, "PROCESO1", 5, recurso1);
-        Proceso process2 = new Proceso(10, 2, 2, "PROCESO2", 4, recurso2);
-        Proceso process3 = new Proceso(10, 2, 2, "PROCESO3", 3, recurso3);
-        Proceso process4 = new Proceso(10, 2, 2, "PROCESO4", 2, recurso4);
-        Proceso process5 = new Proceso(10, 2, 2, "PROCESO5", 1, recurso5);
+        Proceso process2 = new Proceso(10, 2, 2, "PROCESO2", 4, recurso1);
+        Proceso process3 = new Proceso(10, 2, 2, "PROCESO3", 3, recurso1);
+        Proceso process4 = new Proceso(10, 2, 2, "PROCESO4", 2, recurso1);
+        Proceso process5 = new Proceso(10, 2, 2, "PROCESO5", 1, recurso1);
         
         for(Proceso[] aux : Scheduler.listasPrioridades)
         {
@@ -34,6 +30,23 @@ public class ProyectoSO {
             }
         }
         
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
+        while(!recurso1.isBlocked)
+        {
+            
+        }
+        while(recurso1.isBlocked)
+        {
+            
+        }
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
+        Scheduler.AddEjecutandose();
         Scheduler.AddEjecutandose();
         Scheduler.AddEjecutandose();
         Scheduler.AddEjecutandose();

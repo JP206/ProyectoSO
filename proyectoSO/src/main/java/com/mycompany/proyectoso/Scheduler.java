@@ -25,10 +25,6 @@ public class Scheduler {
 
     private static Integer _timeout = 20;
     
-    public static void setTimeOut(int timeout){
-        Scheduler._timeout = timeout;
-    }
-    
     public static Integer GetTimeOut() {
         return Scheduler._timeout;
     }
@@ -57,7 +53,6 @@ public class Scheduler {
             Scheduler.bloqueados.add(process);
             process.isBlocked = true;
             Scheduler.ejecutandose.remove(process);
-            new TimerSalir(process);
         }
     }
     

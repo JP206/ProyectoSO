@@ -11,5 +11,5 @@ import java.util.ArrayList;
 public class CPU {
     public Integer frecuencia;
     public Proceso process;
-    
+    public TimerPrivado timer;
 }

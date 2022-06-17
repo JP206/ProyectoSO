@@ -15,9 +15,11 @@ public class Proceso {
     public Integer in_outputWait; // Tiempo en que usa un recurso
     public String processName; // Nombre del proceso
     public Integer timeLeft;
+    public Recurso recursoUsado;
+    public boolean isBlocked = false;
   
     
-    public Proceso(Integer totalTime, Integer in_outputTime, Integer in_outputWait, String processName, Integer priority)
+    public Proceso(Integer totalTime, Integer in_outputTime, Integer in_outputWait, String processName, Integer priority, Recurso recurso)
     {
         this.priority = priority;
         this.in_outputTime = in_outputTime;
@@ -25,6 +27,11 @@ public class Proceso {
         this.totalTime = totalTime;
         this.processName = processName;
         this.timeLeft = totalTime;
+        this.recursoUsado = recurso;
         Scheduler.AddListo(this);
+    }
+    
+    public void StartTimer(){
+        new TimerPrivado(this);
     }
 }

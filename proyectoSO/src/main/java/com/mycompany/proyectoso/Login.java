@@ -35,7 +35,5 @@ public class Login {
         ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
         String[] usuario = {nombre, contraseña};    // Creo arreglo de strings con usuario y contraseña para escribir en el txt
         manejador.escribirArchivo("src\\usuarios.txt", usuario);    // Escribo el txt "usuarios" en la carpeta src del proyecto con el usuario nuevo
-    }
-    
-    
+    }   
 }

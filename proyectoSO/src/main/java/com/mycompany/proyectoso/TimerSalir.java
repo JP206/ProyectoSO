@@ -11,13 +11,13 @@ package com.mycompany.proyectoso;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TimerPrivado {
+public class TimerSalir {
     Timer timer;
     public Proceso process;
     public int seconds;
-    public TimerPrivado(Proceso process) {
+    public TimerSalir(Proceso process) {
         timer = new Timer();
-        this.seconds = Scheduler.GetTimeOut();
+        this.seconds = process.in_outputWait;
         this.process = process;
         timer.schedule(new StopTask(), this.seconds * 1000);
     }
@@ -30,7 +30,7 @@ public class TimerPrivado {
             process.timeLeft = process.timeLeft - seconds;
             if (process.timeLeft > 0 && !process.isBlocked)
             {
-                Scheduler.AddListo(process);
+                process.recursoUsado.Usar(process);
             } 
             timer.cancel();
         }

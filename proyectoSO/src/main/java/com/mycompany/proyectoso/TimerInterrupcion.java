@@ -5,7 +5,8 @@
 package com.mycompany.proyectoso;
 
 /**
- *
+ * TimerInterrupcion es un clase timer para contar el tiempo que demora
+ * un proceso en ejecucion en recibir una interrupcion. (AKA: Pedir un recurso)
  * @author sanbr
  */
 import java.util.Timer;
@@ -17,7 +18,7 @@ public class TimerInterrupcion {
     public int seconds;
     public TimerInterrupcion(Proceso process) {
         timer = new Timer();
-        this.seconds = process.in_outputTime;
+        this.seconds = process.in_outputTimeLeft;
         this.process = process;
         timer.schedule(new StopTask(), this.seconds * 1000);
     }
@@ -26,12 +27,9 @@ public class TimerInterrupcion {
     class StopTask extends TimerTask {
         @Override
         public void run() {
+            process.recursoUsado.Usar(process);
             Scheduler.RemoveEjecutandose(process);
-            process.timeLeft = process.timeLeft - seconds;
-            if (process.timeLeft > 0 && !process.isBlocked)
-            {
-                process.recursoUsado.Usar(process);
-            } 
+            Scheduler.AddBloqueado(process);
             timer.cancel();
         }
     }

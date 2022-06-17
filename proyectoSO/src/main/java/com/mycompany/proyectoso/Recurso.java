@@ -17,7 +17,7 @@ public class Recurso {
         {
             process.isBlocked = true;
             this.isBlocked = true;
-            new TimerInterrupcion(process);
+            new TimerSalir(process);
             //Scheduler.AddBloqueado(process); no deberia seguir ejecutando el proceso?
         }
         else

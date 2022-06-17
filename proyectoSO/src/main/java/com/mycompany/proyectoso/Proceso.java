@@ -13,10 +13,12 @@ public class Proceso {
     public Integer totalTime; // Tiempo que demora en finalizarse el proceso.
     public Integer in_outputTime; // Tiempo en que llega una interrupcion
     public Integer in_outputWait; // Tiempo en que usa un recurso
+    public int in_outputTimeLeft; // Tiempo restante para pedir un recurso
     public String processName; // Nombre del proceso
     public Integer timeLeft;
     public Recurso recursoUsado;
     public boolean isBlocked = false;
+    
   
     
     public Proceso(Integer totalTime, Integer in_outputTime, Integer in_outputWait, String processName, Integer priority, Recurso recurso)
@@ -32,6 +34,8 @@ public class Proceso {
     }
     
     public void StartTimer(){
-        new TimerPrivado(this);
+        new TimerTimeOut(this);
+        new TimerInterrupcion(this);
     }
+    
 }

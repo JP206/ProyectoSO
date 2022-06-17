@@ -43,13 +43,6 @@ public class ProyectoSO {
             System.out.println(aux.processName);
         }
         System.out.println("---------------------------------");
-        /*for (double j = 0; j < 1000000000; j++){
-        }
-        for (double j = 0; j < 1000000000; j++){
-        }*/
-        for(Proceso aux : Scheduler.ejecutandose)
-        {
-            System.out.println(aux.processName);
-        }
+        
     }
 }

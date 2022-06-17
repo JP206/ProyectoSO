@@ -5,7 +5,8 @@
 package com.mycompany.proyectoso;
 
 /**
- *
+ * Timer Salir es una clase que timer cuya funcion es contar el tiempo que un
+ * recurso es usado por un proceso.
  * @author sanbr
  */
 import java.util.Timer;
@@ -17,7 +18,7 @@ public class TimerSalir {
     public int seconds;
     public TimerSalir(Proceso process) {
         timer = new Timer();
-        this.seconds = process.in_outputWait;
+        this.seconds = process.in_outputTime;
         this.process = process;
         timer.schedule(new StopTask(), this.seconds * 1000);
     }
@@ -26,12 +27,10 @@ public class TimerSalir {
     class StopTask extends TimerTask {
         @Override
         public void run() {
-            Scheduler.RemoveEjecutandose(process);
-            process.timeLeft = process.timeLeft - seconds;
-            if (process.timeLeft > 0 && !process.isBlocked)
-            {
-                process.recursoUsado.Usar(process);
-            } 
+            process.isBlocked = false;
+            Scheduler.RemoveBloqueado(process);
+            Scheduler.AddListo(process);
+            
             timer.cancel();
         }
     }

@@ -23,7 +23,7 @@ public class Scheduler {
     public static ArrayList<Proceso> ejecutandose = new ArrayList<>();
     public static HashMap<Integer, Integer> prioridadEjecutada = new HashMap<Integer, Integer>();
 
-    private static Integer _timeout = 1;
+    private static Integer _timeout = 20;
     
     public static void setTimeOut(int timeout){
         Scheduler._timeout = timeout;
@@ -57,6 +57,7 @@ public class Scheduler {
             Scheduler.bloqueados.add(process);
             process.isBlocked = true;
             Scheduler.ejecutandose.remove(process);
+            new TimerSalir(process);
         }
     }
     

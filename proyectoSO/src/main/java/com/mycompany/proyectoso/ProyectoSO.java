@@ -56,6 +56,5 @@ public class ProyectoSO {
             System.out.println(aux.processName);
         }
         System.out.println("---------------------------------");
-        
     }
 }

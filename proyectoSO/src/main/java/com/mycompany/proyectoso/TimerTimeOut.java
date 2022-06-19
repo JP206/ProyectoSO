@@ -23,7 +23,14 @@ public class TimerTimeOut {
     public int seconds;
     public TimerTimeOut(Proceso process) {
         timer = new Timer();
-        this.seconds = Scheduler.GetTimeOut();
+        if(process.timeLeft < Scheduler.GetTimeOut())
+        {
+            this.seconds = process.timeLeft;
+        }
+        else
+        {
+           this.seconds = Scheduler.GetTimeOut(); 
+        }
         this.process = process;
         timer.schedule(new StopTask(), this.seconds * 1000);
     }

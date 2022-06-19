@@ -28,6 +28,7 @@ public class TimerSalir {
         @Override
         public void run() {
             process.isBlocked = false;
+            process.in_outputTimeLeft = process.in_outputTime;
             Scheduler.RemoveBloqueado(process);
             Scheduler.AddListo(process);
             System.out.println("estoy saliendo ferri san");

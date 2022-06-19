@@ -9,7 +9,7 @@ package com.mycompany.proyectoso;
  * @author sanbr
  */
 public class Recurso {
-    public boolean isBlocked;
+    public boolean isBlocked = false;
     
     public void Usar(Proceso process)
     {

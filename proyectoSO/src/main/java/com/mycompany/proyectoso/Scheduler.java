@@ -41,13 +41,12 @@ public class Scheduler {
         while (i < Scheduler.listasPrioridades[process.priority].length && Scheduler.listasPrioridades[process.priority][i] != null) {
             i++;
         }
-        if (i < 99)
+        if (i < Scheduler.listasPrioridades[process.priority].length)
         {
            Scheduler.listasPrioridades[process.priority][i] = process; 
         }
     }
     
-
     public static void AddBloqueado(Proceso process) {
         if (!Scheduler.bloqueados.contains(process)) {
             Scheduler.bloqueados.add(process);
@@ -76,6 +75,7 @@ public class Scheduler {
                 {
                     if (Scheduler.listasPrioridades[i][j] != null)  // Si encuentra posicion no nula, hay proceso
                     {
+                        Scheduler.cpusLeft--;
                         Scheduler.ejecutandose.add(Scheduler.listasPrioridades[i][j]);  // Agrego proceso encontrado a lista de ejecutandose
                         Scheduler.listasPrioridades[i][j].StartTimer();
                         Scheduler.listasPrioridades[i][j].isBlocked = false;

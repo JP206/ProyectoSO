@@ -31,7 +31,6 @@ public class TimerSalir {
             process.in_outputTimeLeft = process.in_outputTime;
             Scheduler.RemoveBloqueado(process);
             Scheduler.AddListo(process);
-            System.out.println("estoy saliendo ferri san");
             timer.cancel();
         }
     }

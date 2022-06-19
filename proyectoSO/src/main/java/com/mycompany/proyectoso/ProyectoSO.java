@@ -37,6 +37,7 @@ public class ProyectoSO {
         Scheduler.AddEjecutandose();
         Scheduler.AddEjecutandose();
         Scheduler.AddEjecutandose();
+        System.out.println(Scheduler.ejecutandose.size());
         while(recurso1.isBlocked)
         {
             

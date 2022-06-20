@@ -37,13 +37,30 @@ public class Scheduler {
 
     public static void AddListo(Proceso process) {
         int i = 0;
-        process.isBlocked = false;
-        while (i < Scheduler.listasPrioridades[process.priority].length && Scheduler.listasPrioridades[process.priority][i] != null) {
+        int j = 0;
+        boolean isAdded = false;
+        while (i < Scheduler.listasPrioridades[process.priority].length) {
+            j = 0;
+            while (j < Scheduler.listasPrioridades[process.priority].length) {
+                if (Scheduler.listasPrioridades[process.priority][j] == process)
+                {
+                    isAdded = true;
+                }
+                j++;
+            }
             i++;
         }
-        if (i < Scheduler.listasPrioridades[process.priority].length)
+        if (!isAdded)
         {
-           Scheduler.listasPrioridades[process.priority][i] = process; 
+            i = 0;
+            while (i < Scheduler.listasPrioridades[process.priority].length && Scheduler.listasPrioridades[process.priority][i] != null) {
+                i++;
+            }
+            if (i < Scheduler.listasPrioridades[process.priority].length)
+            {
+                process.isBlocked = false;
+               Scheduler.listasPrioridades[process.priority][i] = process; 
+            }
         }
     }
     
@@ -92,10 +109,10 @@ public class Scheduler {
     public static void RemoveEjecutandose(Proceso process) {
         if (Scheduler.ejecutandose.contains(process)) {
             Scheduler.ejecutandose.remove(process);
-            if (process.timeLeft > 0){
+            if (process.timeLeft > 0 && process.isBlocked == false){
                 Scheduler.AddListo(process);    // Si queda tiempo todavía cuando se remueve, es por timeout y vuelve a listos
+                Scheduler.cpusLeft++;
             }
-            Scheduler.cpusLeft++;
         }
     }
 }

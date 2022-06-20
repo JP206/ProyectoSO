@@ -18,7 +18,7 @@ public class TimerSalir {
     public int seconds;
     public TimerSalir(Proceso process) {
         timer = new Timer();
-        this.seconds = process.in_outputTime;
+        this.seconds = process.in_outputWait;
         this.process = process;
         timer.schedule(new StopTask(), this.seconds * 1000);
     }

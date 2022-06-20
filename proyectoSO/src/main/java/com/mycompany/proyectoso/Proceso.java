@@ -9,19 +9,19 @@ package com.mycompany.proyectoso;
  * @author sanbr
  */
 public class Proceso {
-    public Integer priority;
-    public Integer totalTime; // Tiempo que demora en finalizarse el proceso.
-    public Integer in_outputTime; // Tiempo en que llega una interrupcion
-    public Integer in_outputWait; // Tiempo en que usa un recurso
+    public int priority;
+    public int totalTime; // Tiempo que demora en finalizarse el proceso.
+    public int in_outputTime; // Tiempo en que llega una interrupcion
+    public int in_outputWait; // Tiempo en que usa un recurso
     public int in_outputTimeLeft; // Tiempo restante para pedir un recurso
     public String processName; // Nombre del proceso
-    public Integer timeLeft;
+    public int timeLeft;    // ULTIMO INTEGER
     public Recurso recursoUsado;
     public boolean isBlocked = false;
     
   
     
-    public Proceso(Integer totalTime, Integer in_outputTime, Integer in_outputWait, String processName, Integer priority, Recurso recurso)
+    public Proceso(int totalTime, int in_outputTime, int in_outputWait, String processName, int priority, Recurso recurso)
     {
         this.priority = priority;
         this.in_outputTime = in_outputTime;

@@ -42,7 +42,8 @@ public class TimerTimeOut {
             Scheduler.RemoveEjecutandose(process);
             process.timeLeft = process.timeLeft - seconds;
             process.in_outputTimeLeft -= seconds;
-            if (process.timeLeft > 0 && !process.isBlocked)
+            System.out.println(process.in_outputTimeLeft);
+            if (process.timeLeft > 0)
             {
                 Scheduler.AddListo(process);
             } 

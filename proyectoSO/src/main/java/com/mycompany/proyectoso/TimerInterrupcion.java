@@ -22,7 +22,11 @@ public class TimerInterrupcion {
             timer = new Timer();
             this.seconds = process.in_outputTimeLeft;
             this.process = process;
-            timer.schedule(new StopTask(), this.seconds * 1000);
+            if (process.timeLeft - Scheduler.GetTimeOut() > 0)
+            {
+                timer.schedule(new StopTask(), this.seconds * 1000);
+            }
+            
         }
     }
 
@@ -30,9 +34,10 @@ public class TimerInterrupcion {
     class StopTask extends TimerTask {
         @Override
         public void run() {
-            process.recursoUsado.Usar(process);
-            Scheduler.RemoveEjecutandose(process);
-            Scheduler.AddBloqueado(process);
+                process.recursoUsado.Usar(process);
+                Scheduler.RemoveEjecutandose(process);
+                Scheduler.AddBloqueado(process);
+           
             timer.cancel();
         }
     }

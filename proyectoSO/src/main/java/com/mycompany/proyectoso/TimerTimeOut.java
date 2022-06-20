@@ -40,13 +40,33 @@ public class TimerTimeOut {
     class StopTask extends TimerTask {
         @Override
         public void run() {
-            Scheduler.RemoveEjecutandose(process);
-            process.timeLeft = process.timeLeft - seconds;
-            process.in_outputTimeLeft -= seconds;
-            if (process.timeLeft > 0)
-            {
-                Scheduler.AddListo(process);
-            } 
+                Scheduler.RemoveEjecutandose(process);
+                process.timeLeft = process.timeLeft - seconds;
+                process.in_outputTimeLeft -= seconds;
+                if (process.timeLeft > 0)
+                {
+                    Scheduler.AddListo(process);
+                } 
+                else
+                {
+                    int i = 0;
+                    int j = 0;
+                    while (i < Scheduler.listasPrioridades[process.priority].length) {
+                        j = 0;
+                        while (j < Scheduler.listasPrioridades[process.priority].length) {
+                            if (Scheduler.listasPrioridades[process.priority][j] == process)
+                            {
+                                Scheduler.listasPrioridades[process.priority][j] = null;
+                                break;
+                            }
+                            j++;
+                        }
+                        i++;
+                    }
+                    System.out.println("SE FINALIZO EL PROCESO");
+                }
+           
+            
             timer.cancel();
         }
     }

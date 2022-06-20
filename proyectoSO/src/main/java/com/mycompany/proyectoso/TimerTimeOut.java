@@ -23,6 +23,7 @@ public class TimerTimeOut {
     public int seconds;
     public TimerTimeOut(Proceso process) {
         timer = new Timer();
+        
         if(process.timeLeft < Scheduler.GetTimeOut())
         {
             this.seconds = process.timeLeft;
@@ -42,7 +43,6 @@ public class TimerTimeOut {
             Scheduler.RemoveEjecutandose(process);
             process.timeLeft = process.timeLeft - seconds;
             process.in_outputTimeLeft -= seconds;
-            System.out.println(process.in_outputTimeLeft);
             if (process.timeLeft > 0)
             {
                 Scheduler.AddListo(process);

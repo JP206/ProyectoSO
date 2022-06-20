@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyectoso;
 
+import java.util.Arrays;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,14 +42,24 @@ public class SchedulerTest {
             System.out.println("Segundo while");
         }
         assertEquals(Scheduler.listasPrioridades[process.priority][0], process);
-        assertEquals(process.totalTime - Scheduler.GetTimeOut(), process.timeLeft);
+        assertEquals(2, process.timeLeft);
         Scheduler.AddEjecutandose();
         while(Scheduler.ejecutandose.contains(process))
         {
             System.out.println("Tercero while");
         }
+        Scheduler.AddEjecutandose();
+        while(Scheduler.ejecutandose.contains(process))
+        {
+            System.out.println("Cuarto while");
+        }
+        while(Scheduler.ejecutandose.contains(process))
+        {
+            System.out.println("Cuarto while");
+        }
         assertEquals(Scheduler.ejecutandose.contains(process), false);
         assertEquals(Scheduler.bloqueados.contains(process), false);
+        System.out.println(Arrays.toString(Scheduler.listasPrioridades[process.priority]));
         assertEquals(Scheduler.listasPrioridades[process.priority][0], null);
     }
 }

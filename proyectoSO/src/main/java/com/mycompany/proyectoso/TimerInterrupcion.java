@@ -17,10 +17,13 @@ public class TimerInterrupcion {
     public Proceso process;
     public int seconds;
     public TimerInterrupcion(Proceso process) {
-        timer = new Timer();
-        this.seconds = process.in_outputTimeLeft;
-        this.process = process;
-        timer.schedule(new StopTask(), this.seconds * 1000);
+        if (process.in_outputTimeLeft >= 0)
+        {
+            timer = new Timer();
+            this.seconds = process.in_outputTimeLeft;
+            this.process = process;
+            timer.schedule(new StopTask(), this.seconds * 1000);
+        }
     }
 
 

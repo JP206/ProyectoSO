@@ -23,7 +23,7 @@ public class Scheduler {
     public static ArrayList<Proceso> ejecutandose = new ArrayList<>();
     public static HashMap<Integer, Integer> prioridadEjecutada = new HashMap<Integer, Integer>();
 
-    private static int _timeout = 2;
+    private static int _timeout = 1;
     
     public static int GetTimeOut() {
         return Scheduler._timeout;
@@ -92,11 +92,12 @@ public class Scheduler {
                 {
                     if (Scheduler.listasPrioridades[i][j] != null)  // Si encuentra posicion no nula, hay proceso
                     {
+                        Scheduler.listasPrioridades[i][j].isBlocked = false;
                         Scheduler.cpusLeft--;
                         Scheduler.ejecutandose.add(Scheduler.listasPrioridades[i][j]);  // Agrego proceso encontrado a lista de ejecutandose
                         Scheduler.listasPrioridades[i][j].StartTimer();
-                        Scheduler.listasPrioridades[i][j].isBlocked = false;
                         Scheduler.listasPrioridades[i][j] = null;  // Quito el proceso de los listos
+                        //System.out.println(Arrays.toString(Scheduler.listasPrioridades[i]));
                         break;      // Salgo de los while, ya encontré el siguiente listo para ejecutarse
                     }
                     j++;

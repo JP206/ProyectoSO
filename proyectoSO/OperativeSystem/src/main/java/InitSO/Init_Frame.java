@@ -51,21 +51,19 @@ public class Init_Frame extends javax.swing.JFrame {
         adminButton2 = new javax.swing.JButton();
         adminButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        taskButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        taskButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\adminTaskIcon.png")); // NOI18N
-        taskButton.setOpaque(false);
-        taskButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\adminTaskPressed.png")); // NOI18N
-        taskButton.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\adminTaskRollover.png")); // NOI18N
-        getContentPane().add(taskButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 990, 60, 60));
+        taskButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taskButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(taskButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 990, 60, 60));
 
-        adminButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerIcon.png")); // NOI18N
-        adminButton.setOpaque(false);
-        adminButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerPressed.png")); // NOI18N
-        adminButton.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PoweRollover.png")); // NOI18N
         adminButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminButtonMouseEntered(evt);
@@ -78,10 +76,6 @@ public class Init_Frame extends javax.swing.JFrame {
         });
         getContentPane().add(adminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 990, 60, 60));
 
-        adminButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\AdminIcon.png")); // NOI18N
-        adminButton1.setOpaque(false);
-        adminButton1.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\AdminPressed.png")); // NOI18N
-        adminButton1.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\AdminRollover.png")); // NOI18N
         adminButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminButton1ActionPerformed(evt);
@@ -97,10 +91,6 @@ public class Init_Frame extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        adminButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerIcon.png")); // NOI18N
-        adminButton2.setOpaque(false);
-        adminButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerPressed.png")); // NOI18N
-        adminButton2.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PoweRollover.png")); // NOI18N
         adminButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminButton2MouseEntered(evt);
@@ -113,10 +103,6 @@ public class Init_Frame extends javax.swing.JFrame {
         });
         jPanel1.add(adminButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 60, 60));
 
-        adminButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshIcon.png")); // NOI18N
-        adminButton3.setOpaque(false);
-        adminButton3.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshPressed.png")); // NOI18N
-        adminButton3.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshRollover.png")); // NOI18N
         adminButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminButton3MouseEntered(evt);
@@ -131,7 +117,6 @@ public class Init_Frame extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 820, 100, 170));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\anon.jpg")); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel1MouseEntered(evt);
@@ -143,6 +128,7 @@ public class Init_Frame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+        getContentPane().add(taskButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 990, 60, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,6 +176,10 @@ public class Init_Frame extends javax.swing.JFrame {
         taskFrame.setVisible(true);
     }//GEN-LAST:event_adminButton1ActionPerformed
 
+    private void taskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_taskButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,5 +223,6 @@ public class Init_Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton taskButton;
+    private javax.swing.JButton taskButton1;
     // End of variables declaration//GEN-END:variables
 }

@@ -34,6 +34,7 @@ public class Proceso {
         this.recursoUsado = recurso;
         this.in_outputTimeLeft = in_outputTime;
         Scheduler.AddListo(this);
+        Scheduler.procesosActivos.add(this);
     }
     
     public void StartTimer(){

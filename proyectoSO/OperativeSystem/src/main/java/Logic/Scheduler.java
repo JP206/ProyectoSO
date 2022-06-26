@@ -22,6 +22,7 @@ public class Scheduler {
     public static ArrayList<Recurso> recursosListos = new ArrayList<>();
     public static ArrayList<Proceso> ejecutandose = new ArrayList<>();
     public static HashMap<Integer, Integer> prioridadEjecutada = new HashMap<Integer, Integer>();
+    public static ArrayList<Proceso> procesosActivos = new ArrayList();
 
     private static int _timeout = 15;
     
@@ -61,6 +62,16 @@ public class Scheduler {
                Scheduler.listasPrioridades[process.priority][i] = process; 
                Scheduler.RemoveEjecutandose(Scheduler.listasPrioridades[process.priority][i]);
             }
+        }
+    }
+    
+    public static void RemoveListo(Proceso process){
+        int j = 0;
+        while (j < Scheduler.listasPrioridades[process.priority].length && Scheduler.listasPrioridades[process.priority][j] != process) {
+            j++;
+        }
+        if (j < Scheduler.listasPrioridades[process.priority].length) {
+            Scheduler.listasPrioridades[process.priority][j] = null;
         }
     }
     

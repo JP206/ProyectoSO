@@ -10,6 +10,7 @@ import Logic.Scheduler;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import InitSO.TaskManagerFrame;
 
 /**
  *
@@ -78,16 +79,12 @@ public class Advanced_Frame extends javax.swing.JFrame {
         });
         getContentPane().add(cpuTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 360, 60));
 
-        checkButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\checkIcon.png")); // NOI18N
-        checkButton.setOpaque(false);
-        checkButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\pressedCheck.png")); // NOI18N
-        checkButton.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\checkRollover.png")); // NOI18N
         checkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 60, 60));
+        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 60, 60));
 
         errorLoglbl.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
         errorLoglbl.setForeground(new java.awt.Color(204, 204, 204));
@@ -112,7 +109,6 @@ public class Advanced_Frame extends javax.swing.JFrame {
         errorCPULbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(errorCPULbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 360, 50));
 
-        cpulbl.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\advancedBackground.png")); // NOI18N
         cpulbl.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cpulblKeyPressed(evt);

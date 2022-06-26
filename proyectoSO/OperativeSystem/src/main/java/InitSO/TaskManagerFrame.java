@@ -53,11 +53,11 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess1.setModel(tablaTask1);
         tblProcess2.setModel(tablaTask2);
         Recurso recurso1 = new Recurso("Impresora");
-        Proceso process5 = new Proceso(100, 10, 6, "PROCESO1", 1, recurso1);
-        Proceso process4 = new Proceso(100, 11, 7, "PROCESO2", 2, recurso1);
-        Proceso process3 = new Proceso(100, 12, 8, "PROCESO3", 3, recurso1);
-        Proceso process2 = new Proceso(100, 13, 9, "PROCESO4", 4, recurso1);
-        Proceso process1 = new Proceso(100, 14, 10, "PROCESO5", 5, recurso1);
+        Proceso process5 = new Proceso(100, 11, 6, "PROCESO1", 1, recurso1);
+        Proceso process4 = new Proceso(100, 12, 7, "PROCESO2", 2, recurso1);
+        Proceso process3 = new Proceso(100, 13, 8, "PROCESO3", 3, recurso1);
+        Proceso process2 = new Proceso(100, 14, 9, "PROCESO4", 4, recurso1);
+        Proceso process1 = new Proceso(100, 15, 11, "PROCESO5", 5, recurso1);
         Thread hilo = new Thread(runnable);
         hilo.start();
     }

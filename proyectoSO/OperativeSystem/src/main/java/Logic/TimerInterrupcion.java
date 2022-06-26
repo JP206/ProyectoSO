@@ -17,7 +17,7 @@ public class TimerInterrupcion {
     public Proceso process;
     public int seconds;
     public TimerInterrupcion(Proceso process) {
-        if (process.in_outputTimeLeft > 0)
+        if (process.in_outputTimeLeft > 0 )
         {
             process.timerActivated = false;
             timer = new Timer();
@@ -33,10 +33,19 @@ public class TimerInterrupcion {
         public void run() {
             if(!process.timerActivated)
             {
+                process.in_outputTimeLeft = process.in_outputTime;
                 process.timerActivated = true;
                 process.recursoUsado.Usar(process);
                 Scheduler.RemoveEjecutandose(process);
                 Scheduler.AddBloqueado(process);
+                if (process.timeLeft - seconds < 0)
+                {
+                    process.timeLeft = 0;
+                }
+                else
+                {
+                    process.timeLeft -= seconds;
+                }
             }
            
             timer.cancel();

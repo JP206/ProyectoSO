@@ -16,14 +16,14 @@ import java.util.ArrayList;
  */
 public class Scheduler {
 
-    public static int cpusLeft = 3;
+    public static int cpusLeft = 10;
     public static Proceso[][] listasPrioridades = new Proceso[99][99];
     public static ArrayList<Proceso> bloqueados = new ArrayList<>();
     public static ArrayList<Recurso> recursosListos = new ArrayList<>();
     public static ArrayList<Proceso> ejecutandose = new ArrayList<>();
     public static HashMap<Integer, Integer> prioridadEjecutada = new HashMap<Integer, Integer>();
 
-    private static int _timeout = 10;
+    private static int _timeout = 3;
     
     public static int GetTimeOut() {
         return Scheduler._timeout;
@@ -66,6 +66,11 @@ public class Scheduler {
     
     public static void AddBloqueado(Proceso process) {
         if (!Scheduler.bloqueados.contains(process)) {
+            process.timesBlocked ++;
+            if (process.timesBlocked > 3)
+            {
+                process.priority ++;
+            }
             Scheduler.bloqueados.add(process);
             process.isBlocked = true;
             Scheduler.ejecutandose.remove(process);
@@ -96,8 +101,8 @@ public class Scheduler {
                         if (!Scheduler.ejecutandose.contains(Scheduler.listasPrioridades[i][j]))
                         {
                             Scheduler.listasPrioridades[i][j].isBlocked = false;
-                            Scheduler.cpusLeft--;
                             Scheduler.ejecutandose.add(Scheduler.listasPrioridades[i][j]);  // Agrego proceso encontrado a lista de ejecutandose
+                            Scheduler.cpusLeft--;
                             Scheduler.listasPrioridades[i][j].StartTimer();
                             Scheduler.listasPrioridades[i][j] = null;  // Quito el proceso de los listos
                             //System.out.println(Arrays.toString(Scheduler.listasPrioridades[i]));

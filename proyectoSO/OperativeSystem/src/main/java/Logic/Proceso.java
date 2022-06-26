@@ -19,6 +19,7 @@ public class Proceso {
     public Recurso recursoUsado;
     public boolean isBlocked = false;
     public boolean timerActivated = false;
+    public int timesBlocked = 0;
     
   
     

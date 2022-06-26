@@ -79,7 +79,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                     Vector<Integer> Priority = new Vector<>(Arrays.asList(filas[i][j].priority));
                     Vector<Integer> Output_Time = new Vector<>(Arrays.asList(filas[i][j].in_outputTime));
                     Vector<Integer> Output_Wait = new Vector<>(Arrays.asList(filas[i][j].in_outputWait));
-                    Vector<Integer> Total_Time = new Vector<>(Arrays.asList(filas[i][j].totalTime));
+                    Vector<Integer> Total_Time = new Vector<>(Arrays.asList(filas[i][j].timeLeft));
                     Vector<String> Resource = new Vector<>(Arrays.asList(filas[i][j].recursoUsado.recursoname));
 
                     Vector<Object> row = new Vector<Object>();
@@ -113,7 +113,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 Vector<Integer> Priority = new Vector<>(Arrays.asList(process.get(i).priority));
                 Vector<Integer> Output_Time = new Vector<>(Arrays.asList(process.get(i).in_outputTime));
                 Vector<Integer> Output_Wait = new Vector<>(Arrays.asList(process.get(i).in_outputWait));
-                Vector<Integer> Total_Time = new Vector<>(Arrays.asList(process.get(i).totalTime));
+                Vector<Integer> Total_Time = new Vector<>(Arrays.asList(process.get(i).timeLeft));
                 Vector<String> Resource = new Vector<>(Arrays.asList(process.get(i).recursoUsado.recursoname));
 
                 Vector<Object> row = new Vector<Object>();
@@ -143,7 +143,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 Vector<Integer> Priority = new Vector<>(Arrays.asList(process.get(i).priority));
                 Vector<Integer> Output_Time = new Vector<>(Arrays.asList(process.get(i).in_outputTime));
                 Vector<Integer> Output_Wait = new Vector<>(Arrays.asList(process.get(i).in_outputWait));
-                Vector<Integer> Total_Time = new Vector<>(Arrays.asList(process.get(i).totalTime));
+                Vector<Integer> Total_Time = new Vector<>(Arrays.asList(process.get(i).timeLeft));
                 Vector<String> Resource = new Vector<>(Arrays.asList(process.get(i).recursoUsado.recursoname));
 
                 Vector<Object> row = new Vector<Object>();
@@ -465,6 +465,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         });
         while (runtime == false){ 
             Scheduler.AddEjecutandose();
+            System.out.println(Scheduler.cpusLeft);
         }
     }
 

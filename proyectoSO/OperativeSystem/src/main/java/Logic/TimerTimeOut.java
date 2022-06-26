@@ -51,6 +51,15 @@ public class TimerTimeOut {
                 {
                     Scheduler.AddListo(process);
                 }
+                
+                if (process.priority < 99)
+                {
+                    process.timesBlocked --;
+                    if (process.timesBlocked <= 0)
+                    {
+                        process.priority ++;
+                    }
+                }
             }
             timer.cancel();
         }

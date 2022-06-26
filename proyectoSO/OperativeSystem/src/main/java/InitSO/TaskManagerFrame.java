@@ -52,12 +52,12 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess.setModel(tablaTask);
         tblProcess1.setModel(tablaTask1);
         tblProcess2.setModel(tablaTask2);
-        Recurso recurso1 = new Recurso();
-       Proceso process5 = new Proceso(10000000, 10, 6, "PROCESO1", 1, recurso1);
-        Proceso process4 = new Proceso(10000000, 10, 6, "PROCESO2", 2, recurso1);
-        Proceso process3 = new Proceso(10000000, 10, 6, "PROCESO3", 3, recurso1);
-        Proceso process2 = new Proceso(10000000, 10, 6, "PROCESO4", 4, recurso1);
-        Proceso process1 = new Proceso(10000000, 10, 6, "PROCESO5", 5, recurso1);
+        Recurso recurso1 = new Recurso("Impresora");
+        Proceso process5 = new Proceso(100, 10, 6, "PROCESO1", 1, recurso1);
+        Proceso process4 = new Proceso(100, 11, 7, "PROCESO2", 2, recurso1);
+        Proceso process3 = new Proceso(100, 12, 8, "PROCESO3", 3, recurso1);
+        Proceso process2 = new Proceso(100, 13, 9, "PROCESO4", 4, recurso1);
+        Proceso process1 = new Proceso(100, 14, 10, "PROCESO5", 5, recurso1);
         Thread hilo = new Thread(runnable);
         hilo.start();
     }
@@ -80,7 +80,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                     Vector<Integer> Output_Time = new Vector<>(Arrays.asList(filas[i][j].in_outputTime));
                     Vector<Integer> Output_Wait = new Vector<>(Arrays.asList(filas[i][j].in_outputWait));
                     Vector<Integer> Total_Time = new Vector<>(Arrays.asList(filas[i][j].totalTime));
-                    Vector<Recurso> Resource = new Vector<>(Arrays.asList(filas[i][j].recursoUsado));
+                    Vector<String> Resource = new Vector<>(Arrays.asList(filas[i][j].recursoUsado.recursoname));
 
                     Vector<Object> row = new Vector<Object>();
                     row.addElement(Name.get(0));
@@ -89,7 +89,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                     row.addElement(Output_Wait.get(0));
                     row.addElement(Total_Time.get(0));
                     row.addElement(Resource.get(0));
-
+                    int rowscounter = tblProcess.getRowCount();
                     tablaTask.addRow(row);
                 }
 
@@ -114,7 +114,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 Vector<Integer> Output_Time = new Vector<>(Arrays.asList(process.get(i).in_outputTime));
                 Vector<Integer> Output_Wait = new Vector<>(Arrays.asList(process.get(i).in_outputWait));
                 Vector<Integer> Total_Time = new Vector<>(Arrays.asList(process.get(i).totalTime));
-                Vector<Recurso> Resource = new Vector<>(Arrays.asList(process.get(i).recursoUsado));
+                Vector<String> Resource = new Vector<>(Arrays.asList(process.get(i).recursoUsado.recursoname));
 
                 Vector<Object> row = new Vector<Object>();
                 row.addElement(Name.get(0));
@@ -144,7 +144,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 Vector<Integer> Output_Time = new Vector<>(Arrays.asList(process.get(i).in_outputTime));
                 Vector<Integer> Output_Wait = new Vector<>(Arrays.asList(process.get(i).in_outputWait));
                 Vector<Integer> Total_Time = new Vector<>(Arrays.asList(process.get(i).totalTime));
-                Vector<Recurso> Resource = new Vector<>(Arrays.asList(process.get(i).recursoUsado));
+                Vector<String> Resource = new Vector<>(Arrays.asList(process.get(i).recursoUsado.recursoname));
 
                 Vector<Object> row = new Vector<Object>();
                 row.addElement(Name.get(0));
@@ -182,6 +182,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("TaskManager");
         setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(1000000, 100000));
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -211,7 +212,6 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblProcess.setFocusable(false);
         tblProcess.setGridColor(new java.awt.Color(255, 255, 255));
-        tblProcess.setIntercellSpacing(new java.awt.Dimension(0, 0));
         tblProcess.setOpaque(false);
         tblProcess.setRequestFocusEnabled(false);
         tblProcess.setRowSelectionAllowed(false);
@@ -282,7 +282,6 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblProcess1.setFocusable(false);
         tblProcess1.setGridColor(new java.awt.Color(255, 255, 255));
-        tblProcess1.setIntercellSpacing(new java.awt.Dimension(0, 0));
         tblProcess1.setOpaque(false);
         tblProcess1.setRequestFocusEnabled(false);
         tblProcess1.setRowSelectionAllowed(false);
@@ -316,7 +315,6 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblProcess2.setFocusable(false);
         tblProcess2.setGridColor(new java.awt.Color(255, 255, 255));
-        tblProcess2.setIntercellSpacing(new java.awt.Dimension(0, 0));
         tblProcess2.setOpaque(false);
         tblProcess2.setRequestFocusEnabled(false);
         tblProcess2.setRowSelectionAllowed(false);
@@ -465,8 +463,8 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 new TaskManagerFrame().setVisible(true);
             }
         });
-        while (runtime == false){
-            Scheduler.AddEjecutandose();         
+        while (runtime == false){ 
+            Scheduler.AddEjecutandose();
         }
     }
 

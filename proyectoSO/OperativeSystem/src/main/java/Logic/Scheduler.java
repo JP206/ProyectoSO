@@ -93,14 +93,17 @@ public class Scheduler {
                 {
                     if (Scheduler.listasPrioridades[i][j] != null)  // Si encuentra posicion no nula, hay proceso
                     {
-                        Scheduler.listasPrioridades[i][j].isBlocked = false;
-                        Scheduler.cpusLeft--;
-                        Scheduler.ejecutandose.add(Scheduler.listasPrioridades[i][j]);  // Agrego proceso encontrado a lista de ejecutandose
-                        Scheduler.listasPrioridades[i][j].StartTimer();
-                        Scheduler.listasPrioridades[i][j] = null;  // Quito el proceso de los listos
-                        //System.out.println(Arrays.toString(Scheduler.listasPrioridades[i]));
-                        outWhile = true;     // Salgo de los while, ya encontré el siguiente listo para ejecutarse
-                        break;
+                        if (!Scheduler.ejecutandose.contains(Scheduler.listasPrioridades[i][j]))
+                        {
+                            Scheduler.listasPrioridades[i][j].isBlocked = false;
+                            Scheduler.cpusLeft--;
+                            Scheduler.ejecutandose.add(Scheduler.listasPrioridades[i][j]);  // Agrego proceso encontrado a lista de ejecutandose
+                            Scheduler.listasPrioridades[i][j].StartTimer();
+                            Scheduler.listasPrioridades[i][j] = null;  // Quito el proceso de los listos
+                            //System.out.println(Arrays.toString(Scheduler.listasPrioridades[i]));
+                            outWhile = true;     // Salgo de los while, ya encontré el siguiente listo para ejecutarse
+                            break;
+                        }
                     }
                     j++;
                 }

@@ -10,6 +10,11 @@ package Logic;
  */
 public class Recurso {
     public boolean isBlocked = false;
+    public String recursoname;
+    public Recurso(String recursoName)
+    {
+        this.recursoname = recursoName;
+    }
     
     public void Usar(Proceso process)
     {

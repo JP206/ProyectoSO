@@ -44,7 +44,6 @@ public class TimerTimeOut {
             if(!process.timerActivated)
             {
                 process.timerActivated = true;
-                Scheduler.RemoveEjecutandose(process);
                 process.timeLeft = process.timeLeft - seconds;
                 process.in_outputTimeLeft -= seconds;
                 if (process.timeLeft > 0)
@@ -60,6 +59,7 @@ public class TimerTimeOut {
                         process.priority ++;
                     }
                 }
+                Scheduler.RemoveEjecutandose(process);
             }
             timer.cancel();
         }

@@ -33,7 +33,6 @@ public class TimerInterrupcion {
         public void run() {
             if(!process.timerActivated)
             {
-                process.in_outputTimeLeft = process.in_outputTime;
                 process.timerActivated = true;
                 process.recursoUsado.Usar(process);
                 Scheduler.RemoveEjecutandose(process);
@@ -46,6 +45,7 @@ public class TimerInterrupcion {
                 {
                     process.timeLeft -= seconds;
                 }
+                process.in_outputTimeLeft = process.in_outputTime;
             }
            
             timer.cancel();

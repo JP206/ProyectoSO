@@ -23,7 +23,7 @@ public class Scheduler {
     public static ArrayList<Proceso> ejecutandose = new ArrayList<>();
     public static HashMap<Integer, Integer> prioridadEjecutada = new HashMap<Integer, Integer>();
 
-    private static int _timeout = 10;
+    private static int _timeout = 15;
     
     public static int GetTimeOut() {
         return Scheduler._timeout;

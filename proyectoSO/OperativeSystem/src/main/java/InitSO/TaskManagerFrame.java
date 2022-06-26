@@ -53,11 +53,18 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess1.setModel(tablaTask1);
         tblProcess2.setModel(tablaTask2);
         Recurso recurso1 = new Recurso("Impresora");
-        Proceso process5 = new Proceso(100, 11, 6, "PROCESO1", 1, recurso1);
-        Proceso process4 = new Proceso(100, 12, 7, "PROCESO2", 2, recurso1);
-        Proceso process3 = new Proceso(100, 13, 8, "PROCESO3", 3, recurso1);
-        Proceso process2 = new Proceso(100, 14, 9, "PROCESO4", 4, recurso1);
-        Proceso process1 = new Proceso(100, 15, 11, "PROCESO5", 5, recurso1);
+        Recurso recurso2 = new Recurso("Cámara");
+        Recurso recurso3 = new Recurso("Parlante");
+        Proceso process5 = new Proceso(89, 3, 6, "PROCESO1", 1, recurso1);
+        Proceso process4 = new Proceso(13, 5, 7, "PROCESO2", 2, recurso2);
+        Proceso process3 = new Proceso(67, 8, 8, "PROCESO3", 3, recurso3);
+        Proceso process2 = new Proceso(43, 6, 9, "PROCESO4", 4, recurso1);
+        Proceso process1 = new Proceso(50, 12, 11, "PROCESO5", 5, recurso2);
+        Proceso process6 = new Proceso(89, 3, 6, "PROCESO6", 1, recurso1);
+        Proceso process7 = new Proceso(13, 5, 7, "PROCESO7", 2, recurso2);
+        Proceso process8 = new Proceso(67, 8, 8, "PROCESO8", 3, recurso3);
+        Proceso process9 = new Proceso(43, 6, 9, "PROCESO9", 4, recurso1);
+        Proceso process10 = new Proceso(50, 12, 11, "PROCESO10", 5, recurso2);
         Thread hilo = new Thread(runnable);
         hilo.start();
     }
@@ -182,7 +189,6 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("TaskManager");
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(1000000, 100000));
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -222,7 +228,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblProcess);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 910, 150));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 910, 150));
 
         jLabel8.setBackground(new java.awt.Color(153, 153, 153));
         jLabel8.setFont(new java.awt.Font("Bauhaus", 1, 60)); // NOI18N
@@ -243,7 +249,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 checkEjecutandoseActionPerformed(evt);
             }
         });
-        getContentPane().add(checkEjecutandose, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 640, 110, 20));
+        getContentPane().add(checkEjecutandose, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 110, 20));
 
         checkListo.setText("Listos");
         checkListo.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +257,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 checkListoActionPerformed(evt);
             }
         });
-        getContentPane().add(checkListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, -1));
+        getContentPane().add(checkListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 80, -1));
 
         CheckBloqueado.setText("Bloqueados");
         CheckBloqueado.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +265,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 CheckBloqueadoActionPerformed(evt);
             }
         });
-        getContentPane().add(CheckBloqueado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 80, -1));
+        getContentPane().add(CheckBloqueado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 80, -1));
 
         tblProcess1.setFont(new java.awt.Font("Bauhaus Light", 0, 18)); // NOI18N
         tblProcess1.setForeground(new java.awt.Color(51, 51, 51));
@@ -292,7 +298,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tblProcess1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 670, 910, 150));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 910, 150));
 
         tblProcess2.setFont(new java.awt.Font("Bauhaus Light", 0, 18)); // NOI18N
         tblProcess2.setForeground(new java.awt.Color(51, 51, 51));
@@ -325,7 +331,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess2.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tblProcess2);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 910, 150));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 910, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

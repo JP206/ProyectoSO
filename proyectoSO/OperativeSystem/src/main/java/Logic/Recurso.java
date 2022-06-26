@@ -18,9 +18,9 @@ public class Recurso {
     
     public void Usar(Proceso process)
     {
+        process.isBlocked = true;
         if (Scheduler.ejecutandose.contains(process) && !this.isBlocked)
         {
-            process.isBlocked = true;
             this.isBlocked = true;
             new TimerSalir(process);
         }

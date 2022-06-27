@@ -24,6 +24,7 @@ public class Create_Process extends javax.swing.JFrame {
      */
     public Create_Process() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -58,6 +59,7 @@ public class Create_Process extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -68,241 +70,358 @@ public class Create_Process extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(22, 63, 78));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        totalTime1.setText("Duración del proceso");
+        totalTime1.setBackground(new java.awt.Color(26, 41, 60));
+        totalTime1.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        totalTime1.setForeground(new java.awt.Color(255, 255, 255));
+        totalTime1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalTime1.setText("Duracion del proceso");
+        totalTime1.setAlignmentX(0.0F);
+        totalTime1.setAlignmentY(0.0F);
+        totalTime1.setBorder(null);
+        totalTime1.setMargin(new java.awt.Insets(0, 0, 0, 6));
+        totalTime1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                totalTime1MouseClicked(evt);
+            }
+        });
         totalTime1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalTime1ActionPerformed(evt);
             }
         });
+        getContentPane().add(totalTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 250, 40));
 
+        in_outputTime1.setBackground(new java.awt.Color(26, 41, 60));
+        in_outputTime1.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        in_outputTime1.setForeground(new java.awt.Color(255, 255, 255));
+        in_outputTime1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         in_outputTime1.setText("Tiempo entre interrupciones");
+        in_outputTime1.setBorder(null);
+        in_outputTime1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                in_outputTime1MouseClicked(evt);
+            }
+        });
         in_outputTime1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_outputTime1ActionPerformed(evt);
             }
         });
+        getContentPane().add(in_outputTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 250, 40));
 
+        in_outputWait1.setBackground(new java.awt.Color(26, 41, 60));
+        in_outputWait1.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        in_outputWait1.setForeground(new java.awt.Color(255, 255, 255));
+        in_outputWait1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         in_outputWait1.setText("Tiempo de bloqueo");
+        in_outputWait1.setBorder(null);
+        in_outputWait1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                in_outputWait1MouseClicked(evt);
+            }
+        });
         in_outputWait1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_outputWait1ActionPerformed(evt);
             }
         });
+        getContentPane().add(in_outputWait1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 250, 40));
 
+        processName1.setBackground(new java.awt.Color(26, 41, 60));
+        processName1.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        processName1.setForeground(new java.awt.Color(255, 255, 255));
+        processName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         processName1.setText("Nombre del proceso");
+        processName1.setBorder(null);
+        processName1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                processName1MouseClicked(evt);
+            }
+        });
         processName1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processName1ActionPerformed(evt);
             }
         });
+        getContentPane().add(processName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 250, 40));
 
+        recurso1.setBackground(new java.awt.Color(26, 41, 60));
+        recurso1.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        recurso1.setForeground(new java.awt.Color(255, 255, 255));
+        recurso1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         recurso1.setText("Recurso (ingrese número)");
+        recurso1.setBorder(null);
+        recurso1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                recurso1MouseClicked(evt);
+            }
+        });
         recurso1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recurso1ActionPerformed(evt);
             }
         });
+        getContentPane().add(recurso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 250, 40));
 
-        totalTime2.setText("Duración del proceso");
+        totalTime2.setBackground(new java.awt.Color(26, 41, 60));
+        totalTime2.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        totalTime2.setForeground(new java.awt.Color(255, 255, 255));
+        totalTime2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalTime2.setText("Duracion del proceso");
+        totalTime2.setBorder(null);
+        totalTime2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                totalTime2MouseClicked(evt);
+            }
+        });
         totalTime2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalTime2ActionPerformed(evt);
             }
         });
+        getContentPane().add(totalTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 240, 40));
 
+        in_outputTime2.setBackground(new java.awt.Color(26, 41, 60));
+        in_outputTime2.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        in_outputTime2.setForeground(new java.awt.Color(255, 255, 255));
+        in_outputTime2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         in_outputTime2.setText("Tiempo entre interrupciones");
+        in_outputTime2.setBorder(null);
+        in_outputTime2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                in_outputTime2MouseClicked(evt);
+            }
+        });
         in_outputTime2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_outputTime2ActionPerformed(evt);
             }
         });
+        getContentPane().add(in_outputTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 240, 40));
 
+        in_outputWait2.setBackground(new java.awt.Color(26, 41, 60));
+        in_outputWait2.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        in_outputWait2.setForeground(new java.awt.Color(255, 255, 255));
+        in_outputWait2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         in_outputWait2.setText("Tiempo de bloqueo");
+        in_outputWait2.setBorder(null);
+        in_outputWait2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                in_outputWait2MouseClicked(evt);
+            }
+        });
         in_outputWait2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_outputWait2ActionPerformed(evt);
             }
         });
+        getContentPane().add(in_outputWait2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 240, 40));
 
+        processName2.setBackground(new java.awt.Color(26, 41, 60));
+        processName2.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        processName2.setForeground(new java.awt.Color(255, 255, 255));
+        processName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         processName2.setText("Nombre del proceso");
+        processName2.setBorder(null);
+        processName2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                processName2MouseClicked(evt);
+            }
+        });
         processName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processName2ActionPerformed(evt);
             }
         });
+        getContentPane().add(processName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 240, 40));
 
+        priority2.setBackground(new java.awt.Color(26, 41, 60));
+        priority2.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        priority2.setForeground(new java.awt.Color(255, 255, 255));
+        priority2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         priority2.setText("Prioridad (0-98)");
+        priority2.setBorder(null);
+        priority2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                priority2MouseClicked(evt);
+            }
+        });
         priority2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priority2ActionPerformed(evt);
             }
         });
+        getContentPane().add(priority2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 240, 40));
 
+        priority1.setBackground(new java.awt.Color(26, 41, 60));
+        priority1.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        priority1.setForeground(new java.awt.Color(255, 255, 255));
+        priority1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         priority1.setText("Prioridad (0-98)");
+        priority1.setBorder(null);
+        priority1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                priority1MouseClicked(evt);
+            }
+        });
         priority1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priority1ActionPerformed(evt);
             }
         });
+        getContentPane().add(priority1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 250, 40));
 
+        recurso2.setBackground(new java.awt.Color(26, 41, 60));
+        recurso2.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        recurso2.setForeground(new java.awt.Color(255, 255, 255));
+        recurso2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         recurso2.setText("Recurso (ingrese número)");
+        recurso2.setBorder(null);
+        recurso2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                recurso2MouseClicked(evt);
+            }
+        });
         recurso2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recurso2ActionPerformed(evt);
             }
         });
+        getContentPane().add(recurso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 240, 40));
 
-        totalTime3.setText("Duración del proceso");
+        totalTime3.setBackground(new java.awt.Color(26, 41, 60));
+        totalTime3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        totalTime3.setForeground(new java.awt.Color(255, 255, 255));
+        totalTime3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalTime3.setText("Duracion del proceso");
+        totalTime3.setBorder(null);
+        totalTime3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                totalTime3MouseClicked(evt);
+            }
+        });
         totalTime3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalTime3ActionPerformed(evt);
             }
         });
+        getContentPane().add(totalTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 240, 40));
 
+        in_outputTime3.setBackground(new java.awt.Color(26, 41, 60));
+        in_outputTime3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        in_outputTime3.setForeground(new java.awt.Color(255, 255, 255));
+        in_outputTime3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         in_outputTime3.setText("Tiempo entre interrupciones");
+        in_outputTime3.setBorder(null);
+        in_outputTime3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                in_outputTime3MouseClicked(evt);
+            }
+        });
         in_outputTime3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_outputTime3ActionPerformed(evt);
             }
         });
+        getContentPane().add(in_outputTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 230, 240, 40));
 
+        in_outputWait3.setBackground(new java.awt.Color(26, 41, 60));
+        in_outputWait3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        in_outputWait3.setForeground(new java.awt.Color(255, 255, 255));
+        in_outputWait3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         in_outputWait3.setText("Tiempo de bloqueo");
+        in_outputWait3.setBorder(null);
+        in_outputWait3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                in_outputWait3MouseClicked(evt);
+            }
+        });
         in_outputWait3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_outputWait3ActionPerformed(evt);
             }
         });
+        getContentPane().add(in_outputWait3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, 240, 40));
 
+        processName3.setBackground(new java.awt.Color(26, 41, 60));
+        processName3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        processName3.setForeground(new java.awt.Color(255, 255, 255));
+        processName3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         processName3.setText("Nombre del proceso");
+        processName3.setBorder(null);
+        processName3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                processName3MouseClicked(evt);
+            }
+        });
         processName3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processName3ActionPerformed(evt);
             }
         });
+        getContentPane().add(processName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 240, 40));
 
+        priority3.setBackground(new java.awt.Color(26, 41, 60));
+        priority3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        priority3.setForeground(new java.awt.Color(255, 255, 255));
+        priority3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         priority3.setText("Prioridad (0-98)");
+        priority3.setBorder(null);
+        priority3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                priority3MouseClicked(evt);
+            }
+        });
         priority3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priority3ActionPerformed(evt);
             }
         });
+        getContentPane().add(priority3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 410, 240, 40));
 
+        recurso3.setBackground(new java.awt.Color(26, 41, 60));
+        recurso3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        recurso3.setForeground(new java.awt.Color(255, 255, 255));
+        recurso3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         recurso3.setText("Recurso (ingrese número)");
+        recurso3.setBorder(null);
+        recurso3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                recurso3MouseClicked(evt);
+            }
+        });
         recurso3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recurso3ActionPerformed(evt);
             }
         });
+        getContentPane().add(recurso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 470, 240, 40));
 
-        jButton1.setText("Crear");
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\addIcon.png")); // NOI18N
+        jButton1.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\addPressed.png")); // NOI18N
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\addRollover.png")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 600, 60, 60));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CREACIÓN DE PROCESOS");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, 42));
 
-        jLabel3.setText("Recursos: 0-impresora, 1-cámara, 2-parlantes, 3-micrófono");
+        jLabel3.setFont(new java.awt.Font("BauhausC Light", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Recursos: 0- Impresora, 1- Camara, 2- Parlantes, 3- Microfono");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jButton1)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(244, 244, 244))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(in_outputTime1)
-                            .addComponent(totalTime1)
-                            .addComponent(in_outputWait1)
-                            .addComponent(processName1)
-                            .addComponent(recurso1)
-                            .addComponent(priority1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(in_outputTime2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(in_outputWait2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(priority2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(recurso2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(processName2)
-                            .addComponent(totalTime2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(in_outputTime3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(in_outputWait3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(recurso3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(processName3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(priority3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(totalTime3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(totalTime3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(in_outputTime3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(in_outputWait3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(processName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(priority3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12)
-                            .addComponent(recurso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(totalTime1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(in_outputTime1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(in_outputWait1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(processName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(priority1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12)
-                            .addComponent(recurso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(totalTime2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(in_outputTime2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(in_outputWait2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(processName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(priority2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(recurso2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\taskManager.png")); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -399,6 +518,78 @@ public class Create_Process extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void totalTime1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_totalTime1MouseClicked
+        totalTime1.setText("");
+    }//GEN-LAST:event_totalTime1MouseClicked
+
+    private void in_outputTime1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_in_outputTime1MouseClicked
+        in_outputTime1.setText("");
+    }//GEN-LAST:event_in_outputTime1MouseClicked
+
+    private void in_outputWait1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_in_outputWait1MouseClicked
+        in_outputWait1.setText("");
+    }//GEN-LAST:event_in_outputWait1MouseClicked
+
+    private void processName1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_processName1MouseClicked
+        processName1.setText("");
+    }//GEN-LAST:event_processName1MouseClicked
+
+    private void priority1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_priority1MouseClicked
+         priority1.setText("");
+    }//GEN-LAST:event_priority1MouseClicked
+
+    private void recurso1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recurso1MouseClicked
+        recurso1.setText("");
+    }//GEN-LAST:event_recurso1MouseClicked
+
+    private void totalTime2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_totalTime2MouseClicked
+         totalTime2.setText("");
+    }//GEN-LAST:event_totalTime2MouseClicked
+
+    private void in_outputTime2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_in_outputTime2MouseClicked
+        in_outputTime2.setText("");
+    }//GEN-LAST:event_in_outputTime2MouseClicked
+
+    private void in_outputWait2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_in_outputWait2MouseClicked
+        in_outputWait2.setText("");
+    }//GEN-LAST:event_in_outputWait2MouseClicked
+
+    private void processName2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_processName2MouseClicked
+        processName2.setText("");
+    }//GEN-LAST:event_processName2MouseClicked
+
+    private void priority2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_priority2MouseClicked
+        priority2.setText("");
+    }//GEN-LAST:event_priority2MouseClicked
+
+    private void recurso2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recurso2MouseClicked
+        recurso2.setText("");
+    }//GEN-LAST:event_recurso2MouseClicked
+
+    private void totalTime3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_totalTime3MouseClicked
+        totalTime3.setText("");
+    }//GEN-LAST:event_totalTime3MouseClicked
+
+    private void in_outputTime3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_in_outputTime3MouseClicked
+         in_outputTime3.setText("");
+    }//GEN-LAST:event_in_outputTime3MouseClicked
+
+    private void in_outputWait3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_in_outputWait3MouseClicked
+       in_outputWait3.setText("");
+    }//GEN-LAST:event_in_outputWait3MouseClicked
+
+    private void processName3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_processName3MouseClicked
+         processName3.setText("");
+    }//GEN-LAST:event_processName3MouseClicked
+
+    private void priority3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_priority3MouseClicked
+        priority3.setText("");
+    }//GEN-LAST:event_priority3MouseClicked
+
+    private void recurso3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recurso3MouseClicked
+        recurso3.setText("");
+    }//GEN-LAST:event_recurso3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -445,6 +636,7 @@ public class Create_Process extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField priority1;
     private javax.swing.JTextField priority2;

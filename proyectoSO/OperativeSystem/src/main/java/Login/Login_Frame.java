@@ -2,6 +2,8 @@ package Login;
 
 
 import InitSO.Init_Frame;
+import static InitSO.TaskManagerFrame.runtime;
+import Logic.Scheduler;
 import static Login.Login.esUsuario;
 import java.awt.Color;
 
@@ -44,6 +46,7 @@ public class Login_Frame extends javax.swing.JFrame {
 
         loginButton1 = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
+        loginButton2 = new javax.swing.JButton();
         errorLoglbl = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -76,7 +79,6 @@ public class Login_Frame extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\WarningIcon.png")); // NOI18N
-        loginButton1.setOpaque(false);
         loginButton1.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\WarningPressed.png")); // NOI18N
         loginButton1.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\WarningRollover.png")); // NOI18N
         loginButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,10 +86,9 @@ public class Login_Frame extends javax.swing.JFrame {
                 loginButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(loginButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 970, 60, 60));
+        getContentPane().add(loginButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 970, 60, 60));
 
         loginButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\shieldIcon.png")); // NOI18N
-        loginButton.setOpaque(false);
         loginButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\shieldPressed.png")); // NOI18N
         loginButton.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\shieldRollover.png")); // NOI18N
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +97,16 @@ public class Login_Frame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1710, 470, 70, 80));
+
+        loginButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\WarningIcon.png")); // NOI18N
+        loginButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\WarningPressed.png")); // NOI18N
+        loginButton2.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\WarningRollover.png")); // NOI18N
+        loginButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(loginButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 970, 60, 60));
 
         errorLoglbl.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
         errorLoglbl.setForeground(new java.awt.Color(255, 102, 102));
@@ -218,7 +229,6 @@ public class Login_Frame extends javax.swing.JFrame {
         getContentPane().add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 420, 370, 60));
 
         adminButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerIcon.png")); // NOI18N
-        adminButton.setOpaque(false);
         adminButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerPressed.png")); // NOI18N
         adminButton.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PoweRollover.png")); // NOI18N
         adminButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -242,7 +252,6 @@ public class Login_Frame extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         adminButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerIcon.png")); // NOI18N
-        adminButton2.setOpaque(false);
         adminButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerPressed.png")); // NOI18N
         adminButton2.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PoweRollover.png")); // NOI18N
         adminButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,7 +267,6 @@ public class Login_Frame extends javax.swing.JFrame {
         jPanel1.add(adminButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 60, 60));
 
         adminButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshIcon.png")); // NOI18N
-        adminButton3.setOpaque(false);
         adminButton3.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshPressed.png")); // NOI18N
         adminButton3.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshRollover.png")); // NOI18N
         adminButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -349,8 +357,8 @@ public class Login_Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void loginButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButton1ActionPerformed
-        Advanced_Frame advFrm = new Advanced_Frame();
-        advFrm.setVisible(true);
+        modificarTimeout  timeoutFrm = new modificarTimeout();
+        timeoutFrm.setVisible(true);
     }//GEN-LAST:event_loginButton1ActionPerformed
 
     private void adminButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButtonMouseEntered
@@ -387,6 +395,11 @@ public class Login_Frame extends javax.swing.JFrame {
         jPanel1.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseEntered
 
+    private void loginButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButton2ActionPerformed
+        Advanced_Frame advFrm = new Advanced_Frame();
+        advFrm.setVisible(true);
+    }//GEN-LAST:event_loginButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -420,6 +433,9 @@ public class Login_Frame extends javax.swing.JFrame {
                 new Login_Frame().setVisible(true);
             }
         });
+        while (runtime == false){ 
+            Scheduler.AddEjecutandose();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -443,6 +459,7 @@ public class Login_Frame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton loginButton1;
+    private javax.swing.JButton loginButton2;
     private javax.swing.JPasswordField passwordTxt;
     private javax.swing.JTextField userNameTxt;
     // End of variables declaration//GEN-END:variables

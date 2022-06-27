@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Login;
+package InitSO;
 
 
 import Logic.Scheduler;
@@ -11,6 +11,8 @@ import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import InitSO.TaskManagerFrame;
+import Login.Advanced_Frame;
+import Login.Advanced_Frame;
 
 /**
  *
@@ -38,13 +40,14 @@ public class bloquearProcesos extends javax.swing.JFrame {
     private void initComponents() {
 
         proceso = new javax.swing.JTextField();
-        checkButton = new javax.swing.JButton();
         errorLoglbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         validCPULbl = new javax.swing.JLabel();
         errorCPULbl = new javax.swing.JLabel();
         cpulbl = new javax.swing.JLabel();
         proceso1 = new javax.swing.JTextField();
+        checkButton = new javax.swing.JButton();
+        cpulbl1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(431, 424));
@@ -79,13 +82,6 @@ public class bloquearProcesos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 360, 60));
-
-        checkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 60, 60));
 
         errorLoglbl.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
         errorLoglbl.setForeground(new java.awt.Color(204, 204, 204));
@@ -147,23 +143,30 @@ public class bloquearProcesos extends javax.swing.JFrame {
         });
         getContentPane().add(proceso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 360, 60));
 
+        checkButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\checkIcon.png")); // NOI18N
+        checkButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\pressedCheck.png")); // NOI18N
+        checkButton.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\checkRollover.png")); // NOI18N
+        checkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 60, 60));
+
+        cpulbl1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\advancedBackground.png")); // NOI18N
+        cpulbl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpulbl1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(cpulbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cpulblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpulblKeyPressed
 
     }//GEN-LAST:event_cpulblKeyPressed
-
-    private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
-        int i = 0;
-        while (i < Scheduler.procesosActivos.size() && Scheduler.procesosActivos.get(i).processName != proceso.getText()){
-            i++;
-        }
-        if (i < Scheduler.procesosActivos.size()){
-            Scheduler.AddBloqueado(Scheduler.procesosActivos.get(i));
-            Scheduler.RemoveListo(Scheduler.procesosActivos.get(i));
-        }
-    }//GEN-LAST:event_checkButtonActionPerformed
 
     private void proceso1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proceso1MouseDragged
         // TODO add your handling code here:
@@ -204,6 +207,24 @@ public class bloquearProcesos extends javax.swing.JFrame {
     private void procesoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_procesoMouseDragged
 
     }//GEN-LAST:event_procesoMouseDragged
+
+    private void cpulbl1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpulbl1KeyPressed
+
+    }//GEN-LAST:event_cpulbl1KeyPressed
+
+    private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
+        int i = 0;
+        while (i < Scheduler.procesosActivos.size() && Scheduler.procesosActivos.get(i).processName != proceso.getText()){
+            i++;
+        }
+        if (i < Scheduler.procesosActivos.size()){
+            Scheduler.procesosActivos.get(i).timeLeft = 0;
+            Scheduler.procesosActivos.get(i).isBlocked= true;
+            Scheduler.AddBloqueado(Scheduler.procesosActivos.get(i));
+            Scheduler.RemoveListo(Scheduler.procesosActivos.get(i));
+            Scheduler.RemoveEjecutandose(Scheduler.procesosActivos.get(i));
+        }
+    }//GEN-LAST:event_checkButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,6 +267,7 @@ public class bloquearProcesos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton checkButton;
     private javax.swing.JLabel cpulbl;
+    private javax.swing.JLabel cpulbl1;
     private javax.swing.JLabel errorCPULbl;
     private javax.swing.JLabel errorLoglbl;
     private javax.swing.JLabel jLabel8;

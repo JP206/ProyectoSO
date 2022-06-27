@@ -5,6 +5,10 @@
  */
 package InitSO;
 
+import static InitSO.TaskManagerFrame.runtime;
+import Logic.Proceso;
+import Logic.Recurso;
+import Logic.Scheduler;
 import Login.Login_Frame;
 import javax.swing.JFrame;
 
@@ -28,7 +32,19 @@ public class Init_Frame extends javax.swing.JFrame {
         adminButton3.setContentAreaFilled(false); //to make the content area transparent
         adminButton3.setBorderPainted(false); //to make the borders transparent
         jPanel1.setVisible(false);
-        
+        Recurso recurso1 = new Recurso("Impresora");
+        Recurso recurso2 = new Recurso("Cámara");
+        Recurso recurso3 = new Recurso("Parlante");
+        /*Proceso process5 = new Proceso(89, 3, 6, "PROCESO1", 1, recurso1);
+        Proceso process4 = new Proceso(13, 5, 7, "PROCESO2", 2, recurso2);
+        Proceso process3 = new Proceso(67, 8, 8, "PROCESO3", 3, recurso3);
+        Proceso process2 = new Proceso(43, 6, 9, "PROCESO4", 4, recurso1);
+        Proceso process1 = new Proceso(50, 12, 11, "PROCESO5", 5, recurso2);
+        Proceso process6 = new Proceso(89, 3, 6, "PROCESO6", 1, recurso1);
+        Proceso process7 = new Proceso(13, 5, 7, "PROCESO7", 2, recurso2);
+        Proceso process8 = new Proceso(67, 8, 8, "PROCESO8", 3, recurso3);
+        Proceso process9 = new Proceso(43, 6, 9, "PROCESO9", 4, recurso1);
+        Proceso process10 = new Proceso(50, 12, 11, "PROCESO10", 5, recurso2);*/
     }
 
     public Init_Frame(JFrame jFrame, boolean b) {
@@ -45,25 +61,35 @@ public class Init_Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         taskButton = new javax.swing.JButton();
-        adminButton = new javax.swing.JButton();
         adminButton1 = new javax.swing.JButton();
+        adminButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         adminButton2 = new javax.swing.JButton();
         adminButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        taskButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        taskButton.addActionListener(new java.awt.event.ActionListener() {
+        taskButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\adminTaskIcon.png")); // NOI18N
+        taskButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\adminTaskPressed.png")); // NOI18N
+        taskButton.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\adminTaskRollover.png")); // NOI18N
+        getContentPane().add(taskButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 990, 60, 60));
+
+        adminButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\AdminIcon.png")); // NOI18N
+        adminButton1.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\AdminPressed.png")); // NOI18N
+        adminButton1.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\AdminRollover.png")); // NOI18N
+        adminButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                taskButtonActionPerformed(evt);
+                adminButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(taskButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 990, 60, 60));
+        getContentPane().add(adminButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 990, 60, 60));
 
+        adminButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerIcon.png")); // NOI18N
+        adminButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerPressed.png")); // NOI18N
+        adminButton.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PoweRollover.png")); // NOI18N
         adminButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminButtonMouseEntered(evt);
@@ -74,14 +100,7 @@ public class Init_Frame extends javax.swing.JFrame {
                 adminButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(adminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 990, 60, 60));
-
-        adminButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(adminButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 990, 60, 60));
+        getContentPane().add(adminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 990, 60, 60));
 
         jPanel1.setBackground(new java.awt.Color(181, 208, 241));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +110,9 @@ public class Init_Frame extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        adminButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerIcon.png")); // NOI18N
+        adminButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PowerPressed.png")); // NOI18N
+        adminButton2.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\PoweRollover.png")); // NOI18N
         adminButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminButton2MouseEntered(evt);
@@ -103,6 +125,9 @@ public class Init_Frame extends javax.swing.JFrame {
         });
         jPanel1.add(adminButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 60, 60));
 
+        adminButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshIcon.png")); // NOI18N
+        adminButton3.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshPressed.png")); // NOI18N
+        adminButton3.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\RefreshRollover.png")); // NOI18N
         adminButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminButton3MouseEntered(evt);
@@ -115,8 +140,9 @@ public class Init_Frame extends javax.swing.JFrame {
         });
         jPanel1.add(adminButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 820, 100, 170));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 820, 100, 170));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\anon.jpg")); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel1MouseEntered(evt);
@@ -128,42 +154,43 @@ public class Init_Frame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
-        getContentPane().add(taskButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 990, 60, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel1KeyPressed
-
-    }//GEN-LAST:event_jLabel1KeyPressed
-
-    private void adminButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButtonMouseEntered
-        
-    }//GEN-LAST:event_adminButtonMouseEntered
-
-    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
-    
-    }//GEN-LAST:event_jPanel1MouseExited
-
-    private void adminButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButton3MouseEntered
-    
-    }//GEN-LAST:event_adminButton3MouseEntered
-
-    private void adminButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButton2MouseEntered
-    
-    }//GEN-LAST:event_adminButton2MouseEntered
 
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
         jPanel1.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseEntered
 
+    private void jLabel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel1KeyPressed
+
+    }//GEN-LAST:event_jLabel1KeyPressed
+
+    private void adminButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButton1ActionPerformed
+        TaskManagerFrame taskFrame = new TaskManagerFrame();
+        taskFrame.setVisible(true);
+        
+    }//GEN-LAST:event_adminButton1ActionPerformed
+
+    private void adminButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButtonMouseEntered
+
+    }//GEN-LAST:event_adminButtonMouseEntered
+
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
         jPanel1.setVisible(true);
     }//GEN-LAST:event_adminButtonActionPerformed
 
+    private void adminButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButton2MouseEntered
+
+    }//GEN-LAST:event_adminButton2MouseEntered
+
     private void adminButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButton2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_adminButton2ActionPerformed
+
+    private void adminButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminButton3MouseEntered
+
+    }//GEN-LAST:event_adminButton3MouseEntered
 
     private void adminButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButton3ActionPerformed
         dispose();
@@ -171,14 +198,9 @@ public class Init_Frame extends javax.swing.JFrame {
         log.setVisible(true);
     }//GEN-LAST:event_adminButton3ActionPerformed
 
-    private void adminButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButton1ActionPerformed
-        TaskManagerFrame taskFrame = new TaskManagerFrame();
-        taskFrame.setVisible(true);
-    }//GEN-LAST:event_adminButton1ActionPerformed
+    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
 
-    private void taskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_taskButtonActionPerformed
+    }//GEN-LAST:event_jPanel1MouseExited
 
     /**
      * @param args the command line arguments
@@ -223,6 +245,5 @@ public class Init_Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton taskButton;
-    private javax.swing.JButton taskButton1;
     // End of variables declaration//GEN-END:variables
 }

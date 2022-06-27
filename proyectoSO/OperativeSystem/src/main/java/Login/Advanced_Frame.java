@@ -38,11 +38,11 @@ public class Advanced_Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         cpuTxt = new javax.swing.JTextField();
-        checkButton = new javax.swing.JButton();
         errorLoglbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         validCPULbl = new javax.swing.JLabel();
         errorCPULbl = new javax.swing.JLabel();
+        checkButton = new javax.swing.JButton();
         cpulbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -79,13 +79,6 @@ public class Advanced_Frame extends javax.swing.JFrame {
         });
         getContentPane().add(cpuTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 360, 60));
 
-        checkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 60, 60));
-
         errorLoglbl.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
         errorLoglbl.setForeground(new java.awt.Color(204, 204, 204));
         errorLoglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -109,6 +102,17 @@ public class Advanced_Frame extends javax.swing.JFrame {
         errorCPULbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(errorCPULbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 360, 50));
 
+        checkButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\checkIcon.png")); // NOI18N
+        checkButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\pressedCheck.png")); // NOI18N
+        checkButton.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\checkRollover.png")); // NOI18N
+        checkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 60, 60));
+
+        cpulbl.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\advancedBackground.png")); // NOI18N
         cpulbl.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cpulblKeyPressed(evt);
@@ -118,10 +122,6 @@ public class Advanced_Frame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cpulblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpulblKeyPressed
-
-    }//GEN-LAST:event_cpulblKeyPressed
 
     private void cpuTxtMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpuTxtMouseDragged
 
@@ -143,24 +143,27 @@ public class Advanced_Frame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cpuTxtActionPerformed
 
+    private void cpulblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpulblKeyPressed
+
+    }//GEN-LAST:event_cpulblKeyPressed
+
     private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
         String cpu = cpuTxt.getText();
-        
+
         try{
             int parseInt = Integer.parseInt(cpu);
             if(parseInt > 0 && parseInt < 100){
                 validCPULbl.setText("Configuration Applied");
-                Scheduler.cpusLeft = parseInt; 
+                Scheduler.cpusLeft = parseInt;
             }
             Thread.sleep(1000);
-              
+
         }catch(NumberFormatException e){
             errorCPULbl.setText("Ingrese un valor numerico");
         } catch (InterruptedException ex) {
             Logger.getLogger(Advanced_Frame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }//GEN-LAST:event_checkButtonActionPerformed
 
     /**

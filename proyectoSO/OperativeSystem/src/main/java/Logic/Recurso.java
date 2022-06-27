@@ -4,6 +4,8 @@
  */
 package Logic;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author sanbr

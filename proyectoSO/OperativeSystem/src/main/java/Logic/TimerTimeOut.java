@@ -50,6 +50,9 @@ public class TimerTimeOut {
                 {
                     Scheduler.AddListo(process);
                 }
+                else {
+                    Scheduler.procesosActivos.remove(process);
+                }
                 
                 if (process.priority < 99)
                 {

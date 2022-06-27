@@ -34,11 +34,16 @@ public class Proceso {
         this.recursoUsado = recurso;
         this.in_outputTimeLeft = in_outputTime;
         Scheduler.AddListo(this);
+        Scheduler.procesosActivos.add(this);
     }
     
     public void StartTimer(){
         new TimerInterrupcion(this);
         new TimerTimeOut(this);
+    }
+
+    public void isBlocked() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

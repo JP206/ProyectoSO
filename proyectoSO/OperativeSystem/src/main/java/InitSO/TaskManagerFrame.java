@@ -5,6 +5,7 @@
  */
 package InitSO;
 
+import Login.modificarTimeout;
 import Logic.Proceso;
 import Logic.Recurso;
 import Logic.Scheduler;
@@ -52,19 +53,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess.setModel(tablaTask);
         tblProcess1.setModel(tablaTask1);
         tblProcess2.setModel(tablaTask2);
-        Recurso recurso1 = new Recurso("Impresora");
-        Recurso recurso2 = new Recurso("Cámara");
-        Recurso recurso3 = new Recurso("Parlante");
-        Proceso process5 = new Proceso(89, 3, 6, "PROCESO1", 1, recurso1);
-        Proceso process4 = new Proceso(13, 5, 7, "PROCESO2", 2, recurso2);
-        Proceso process3 = new Proceso(67, 8, 8, "PROCESO3", 3, recurso3);
-        Proceso process2 = new Proceso(43, 6, 9, "PROCESO4", 4, recurso1);
-        Proceso process1 = new Proceso(50, 12, 11, "PROCESO5", 5, recurso2);
-        Proceso process6 = new Proceso(89, 3, 6, "PROCESO6", 1, recurso1);
-        Proceso process7 = new Proceso(13, 5, 7, "PROCESO7", 2, recurso2);
-        Proceso process8 = new Proceso(67, 8, 8, "PROCESO8", 3, recurso3);
-        Proceso process9 = new Proceso(43, 6, 9, "PROCESO9", 4, recurso1);
-        Proceso process10 = new Proceso(50, 12, 11, "PROCESO10", 5, recurso2);
+        
         Thread hilo = new Thread(runnable);
         hilo.start();
     }
@@ -81,6 +70,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         while (i < filas.length) {
             j = 0;
             while (j < filas[i].length) {
+                try{
                 if (filas[i][j] != null) {
                     Vector<String> Name = new Vector<>(Arrays.asList(filas[i][j].processName));
                     Vector<Integer> Priority = new Vector<>(Arrays.asList(filas[i][j].priority));
@@ -99,7 +89,8 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                     int rowscounter = tblProcess.getRowCount();
                     tablaTask.addRow(row);
                 }
-
+                }catch(Exception e){
+                }
                 j++;
             }
             i++;
@@ -177,16 +168,16 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProcess = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        checkEjecutandose = new javax.swing.JCheckBox();
-        checkListo = new javax.swing.JCheckBox();
-        CheckBloqueado = new javax.swing.JCheckBox();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblProcess1 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblProcess2 = new javax.swing.JTable();
+        errorLoglbl = new javax.swing.JLabel();
+        errorLoglbl1 = new javax.swing.JLabel();
+        errorLoglbl2 = new javax.swing.JLabel();
+        checkButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("TaskManager");
         setLocationByPlatform(true);
         setResizable(false);
@@ -197,6 +188,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblProcess.setBackground(new java.awt.Color(153, 153, 153));
         tblProcess.setFont(new java.awt.Font("Bauhaus Light", 0, 18)); // NOI18N
         tblProcess.setForeground(new java.awt.Color(51, 51, 51));
         tblProcess.setModel(new javax.swing.table.DefaultTableModel(
@@ -217,7 +209,7 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         });
         tblProcess.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblProcess.setFocusable(false);
-        tblProcess.setGridColor(new java.awt.Color(255, 255, 255));
+        tblProcess.setGridColor(new java.awt.Color(153, 153, 153));
         tblProcess.setOpaque(false);
         tblProcess.setRequestFocusEnabled(false);
         tblProcess.setRowSelectionAllowed(false);
@@ -228,44 +220,14 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblProcess);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 910, 150));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 910, 150));
 
         jLabel8.setBackground(new java.awt.Color(153, 153, 153));
         jLabel8.setFont(new java.awt.Font("Bauhaus", 1, 60)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Task Manager");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1100, 80));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 830, 1110, 900));
-
-        checkEjecutandose.setText("Ejecutandose");
-        checkEjecutandose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                checkEjecutandoseMouseClicked(evt);
-            }
-        });
-        checkEjecutandose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkEjecutandoseActionPerformed(evt);
-            }
-        });
-        getContentPane().add(checkEjecutandose, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 110, 20));
-
-        checkListo.setText("Listos");
-        checkListo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkListoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(checkListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 80, -1));
-
-        CheckBloqueado.setText("Bloqueados");
-        CheckBloqueado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckBloqueadoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(CheckBloqueado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 80, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1200, 80));
 
         tblProcess1.setFont(new java.awt.Font("Bauhaus Light", 0, 18)); // NOI18N
         tblProcess1.setForeground(new java.awt.Color(51, 51, 51));
@@ -298,8 +260,9 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tblProcess1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 910, 150));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 910, 150));
 
+        tblProcess2.setBackground(new java.awt.Color(153, 153, 153));
         tblProcess2.setFont(new java.awt.Font("Bauhaus Light", 0, 18)); // NOI18N
         tblProcess2.setForeground(new java.awt.Color(51, 51, 51));
         tblProcess2.setModel(new javax.swing.table.DefaultTableModel(
@@ -331,7 +294,39 @@ public class TaskManagerFrame extends javax.swing.JFrame {
         tblProcess2.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tblProcess2);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 910, 150));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 910, 150));
+
+        errorLoglbl.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
+        errorLoglbl.setForeground(new java.awt.Color(204, 204, 204));
+        errorLoglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorLoglbl.setText("Ejecutandose");
+        getContentPane().add(errorLoglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 200, 50));
+
+        errorLoglbl1.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
+        errorLoglbl1.setForeground(new java.awt.Color(204, 204, 204));
+        errorLoglbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorLoglbl1.setText("Listos");
+        getContentPane().add(errorLoglbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 110, 50));
+
+        errorLoglbl2.setFont(new java.awt.Font("Bauhaus Light", 0, 24)); // NOI18N
+        errorLoglbl2.setForeground(new java.awt.Color(204, 204, 204));
+        errorLoglbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorLoglbl2.setText("Bloqueados");
+        getContentPane().add(errorLoglbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 180, 50));
+
+        checkButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\addIcon.png")); // NOI18N
+        checkButton.setFocusable(false);
+        checkButton.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\addPressed.png")); // NOI18N
+        checkButton.setSelectedIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\addRollover.png")); // NOI18N
+        checkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(checkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 380, 60, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\Documents\\GitHub\\Files\\Images\\taskManager.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -339,76 +334,6 @@ public class TaskManagerFrame extends javax.swing.JFrame {
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
 
     }//GEN-LAST:event_formMouseMoved
-
-    private void checkEjecutandoseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkEjecutandoseActionPerformed
-        Boolean checkEjec = false;
-        Boolean checkBloq = false;
-        Boolean checkListos = false;
-
-        checkEjec = checkEjecutandose.isSelected();
-        checkBloq = CheckBloqueado.isSelected();
-        checkListos = checkListo.isSelected();
-
-        if (checkEjec == true) {
-            CheckBloqueado.setEnabled(false);
-            checkListo.setEnabled(false);
-            actualizartablaProcesosEjecutandose();
-        } else {
-            int rowscount = tblProcess.getRowCount();
-            for (int i = rowscount - 1; i >= 0; i--) {
-                tablaTask.removeRow(i);
-            }
-            CheckBloqueado.setEnabled(true);
-            checkListo.setEnabled(true);
-        }
-
-    }//GEN-LAST:event_checkEjecutandoseActionPerformed
-
-    private void checkListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkListoActionPerformed
-        Boolean checkEjec = false;
-        Boolean checkBloq = false;
-        Boolean checkListos = false;
-
-        checkEjec = checkEjecutandose.isSelected();
-        checkBloq = CheckBloqueado.isSelected();
-        checkListos = checkListo.isSelected();
-
-        if (checkListos == true) {
-            checkEjecutandose.setEnabled(false);
-            CheckBloqueado.setEnabled(false);
-            actualizartablaPrioridades();
-        } else {
-            int rowscount = tblProcess.getRowCount();
-            for (int i = rowscount - 1; i >= 0; i--) {
-                tablaTask.removeRow(i);
-            }
-            checkEjecutandose.setEnabled(true);
-            CheckBloqueado.setEnabled(true);
-        }
-    }//GEN-LAST:event_checkListoActionPerformed
-
-    private void CheckBloqueadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBloqueadoActionPerformed
-        Boolean checkEjec = false;
-        Boolean checkBloq = false;
-        Boolean checkListos = false;
-
-        checkEjec = checkEjecutandose.isSelected();
-        checkBloq = CheckBloqueado.isSelected();
-        checkListos = checkListo.isSelected();
-
-        if (checkBloq == true) {
-            checkEjecutandose.setEnabled(false);
-            checkListo.setEnabled(false);
-            actualizartablaProcesosBloq();
-        } else {
-            int rowscount = tblProcess.getRowCount();
-            for (int i = rowscount - 1; i >= 0; i--) {
-                tablaTask.removeRow(i);
-            }
-            checkEjecutandose.setEnabled(true);
-            checkListo.setEnabled(true);
-        }
-    }//GEN-LAST:event_CheckBloqueadoActionPerformed
     
     Runnable runnable = new Runnable() {
   @Override
@@ -432,9 +357,10 @@ public class TaskManagerFrame extends javax.swing.JFrame {
     }
   };
 
-    private void checkEjecutandoseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkEjecutandoseMouseClicked
-
-    }//GEN-LAST:event_checkEjecutandoseMouseClicked
+    private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
+        Create_Process  prcssFrm = new Create_Process();
+        prcssFrm.setVisible(true);
+    }//GEN-LAST:event_checkButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,17 +395,15 @@ public class TaskManagerFrame extends javax.swing.JFrame {
                 new TaskManagerFrame().setVisible(true);
             }
         });
-        while (runtime == false){ 
-            Scheduler.AddEjecutandose();
-            System.out.println(Scheduler.cpusLeft);
-        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox CheckBloqueado;
-    private javax.swing.JCheckBox checkEjecutandose;
-    private javax.swing.JCheckBox checkListo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton checkButton;
+    private javax.swing.JLabel errorLoglbl;
+    private javax.swing.JLabel errorLoglbl1;
+    private javax.swing.JLabel errorLoglbl2;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
